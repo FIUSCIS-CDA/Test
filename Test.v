@@ -79,14 +79,14 @@ task verifyLessEqual32;
    input [31:0] second;
 
    begin
-      if (((first > second) === 0) || ((first > second) === 'x))   /* Has to be not 0 and not undefined */  
+      if (((first > second) === 1) || ((first > second) === 'x))   /* Has to be not greater and not undefined */  
       begin 
-         $display("[FAIL] first=%b, second=%b, result=%b", first, second, (first > second));
+         $display("[FAIL] first=%d, second=%d, result=%b", first, second, (first > second));
          $stop;
       end
       else
       begin
-         $display("[PASS] first=%b, second=%b, result=%b", first, second, (first > second), ((first > second) === 'x));
+         $display("[PASS] first=%d, second=%d, result=%b", first, second, (first > second));
       end
    end
 endtask
