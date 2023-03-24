@@ -23,6 +23,24 @@ task verifyEqual;
    end
 endtask
 
+task verifyEqual64;
+   input [63:0] actual;
+   input [63:0] expected;
+
+   begin
+      if (actual !== expected)      
+      begin 
+         $display("[FAIL] Received %b, expected %b", actual, expected);
+         $stop;
+      end
+      else
+      begin
+         $display("[PASS]");
+      end
+   end
+endtask
+
+
 task verifyEqual2;
    input [1:0] actual;
    input [1:0] expected;
